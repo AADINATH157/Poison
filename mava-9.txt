@@ -95,3 +95,10 @@ mvn archetype:generate
 cd MyWebApp
 mvn compile
 mvn package
+
+tomcat cofig username setuo 
+<role rolename="manager-gui"/>
+<user username="admin" password="12345" roles="manager-gui"/>
+</tomcat-users>
+
+http://localhost:8080/manager/html
