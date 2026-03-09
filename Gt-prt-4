@@ -1,0 +1,60 @@
+Practical 4: Repository Creation & Version Control using Git
+Aim
+To create and manage a GitHub repository using basic Git commands.
+Requirements
+• Git installed on system
+• GitHub account
+• Internet connection
+
+Step 1: Login to GitHub
+1. Open browser.
+2. Go to https://github.com
+3. Login to your GitHub account.
+
+Step 2: Create a New Repository
+1. Click on "New Repository".
+2. Enter repository name (example: git-practical4).
+3. Select Public.
+4. Click Create Repository.
+
+Step 3: Open Git Bash and Create Project Folder
+Commands:
+cd Desktop
+mkdir Git_practical_1
+cd Git_practical_1
+
+Step 4: Initialize Git Repository
+Command:
+git init
+
+Step 5: Create Sample Files
+Commands:
+echo "Hello Git" > file1.txt
+echo "Git Practical" > file2.txt
+echo "Version Control" > file3.txt
+
+Step 6: Check Git Status
+Command:
+git status
+
+Step 7: Add Files to Staging Area
+Command:
+git add .
+
+Step 8: Commit Files
+Command:
+git commit -m "Initial project commit"
+
+Step 9: Connect Local Repository to GitHub
+Command:
+git remote add origin https://github.com/username/git-practical4.git
+
+Step 10: Verify Remote Repository
+Command:
+git remote -v
+
+Step 11: Push Files to GitHub
+Command:
+git push -u origin main
+Result
+The GitHub repository is successfully created and the project files are pushed using Git commands.
