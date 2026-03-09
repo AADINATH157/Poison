@@ -1,0 +1,49 @@
+Practical No. 5: Branching, Merging and Conflict Resolution
+Aim
+To create branches, merge them and resolve merge conflicts using Git and GitHub.
+
+Procedure
+1. Open your repository on GitHub and login to your GitHub account.
+
+2. Click on the Branch dropdown where the main branch is displayed.
+
+3. Type a new branch name (example: feature) and click Create branch.
+
+4. Make sure the feature branch is selected.
+
+5. Open any file such as file1.txt.
+
+6. Add content like: 'This change is from feature branch'.
+
+7. Click Commit changes and add commit message 'Add content for practical 5'.
+
+8. Now switch back to the main branch.
+
+9. Open the same file again (file1.txt).
+
+10. Add different content like: 'This change is from main branch'.
+
+11. Click Commit changes with message 'Update file from main branch'.
+
+12. Go to the Pull Requests tab.
+
+13. Click on New Pull Request.
+
+14. Select Base branch as main and Compare branch as feature.
+
+15. Click Create Pull Request.
+
+16. GitHub will show that the branch has conflicts that must be resolved.
+
+17. Click Resolve conflicts.
+
+18. Edit the file and keep the required content from both branches.
+
+19. Remove the conflict markers (<<<<<<, ======, >>>>>>).
+
+20. Click Mark as resolved and then Commit merge.
+
+21. Finally, check the commits section to verify that the branches are merged successfully.
+
+Result
+The branch was created, merged successfully and the merge conflict was resolved using GitHub.
