@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app
+    version="3.1"
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:javaee="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xml="http://www.w3.org/XML/1998/namespace"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd ">
+
+  <display-name>MyWebApp Wrapper</display-name>
+
+  <description>Generated Portlet Wrapper</description>
+
+  <servlet>
+    <description>Portlet for Jetspeed Fusion</description>
+    <display-name>MyWebApp Portlet</display-name>
+    <servlet-name>MyWebApp</servlet-name>
+    <servlet-class>org.apache.jetspeed.container.JetspeedContainerServlet</servlet-class>
+
+    <init-param>
+      <param-name>registerAtInit</param-name>
+      <param-value>1</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>portletApplication</param-name>
+      <param-value>MyWebApp</param-value>
+    </init-param>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>JetspeedContainer</servlet-name>
+    <url-pattern>/container/*</url-pattern>
+  </servlet-mapping>
+
+  <jsp-config>
+    <taglib>
+      <taglib-uri>http://java.sun.com/portlet</taglib-uri>
+      <taglib-location>/WEB-INF/tld/portlet.tld</taglib-location>
+    </taglib>
+  </jsp-config>
+</web-app>
