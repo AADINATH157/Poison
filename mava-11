@@ -1,0 +1,301 @@
+Practical 11 – Creating Maven Project in Eclipse
+Aim
+To create a Maven-based web application in Eclipse and run it using Tomcat. Also to develop a simple calculator web application using JSP and Servlet.
+
+Part A – Hello World Web Application using Maven
+Step 1: Open Eclipse IDE.
+Step 2: Click File → New → Maven Project.
+Step 3: Uncheck 'Create a simple project (skip archetype selection)' and click Next.
+Step 4: In the filter search box type 'webapp'.
+Step 5: Select 'maven-archetype-webapp' and click Next.
+
+Step 6: Enter the following project details:
+GroupId: com.mywebapp
+ArtifactId: MyWebApp
+Version: 0.0.1-SNAPSHOT
+Package: com.mywebapp
+
+Step 7: Click Finish. Maven will generate the project structure.
+Step 8: Right click the project → Run As → Maven Install to build the project.
+Step 9: A WAR file will be created inside the 'target' folder.
+Step 10: Right click project → Run As → Maven Build.
+Step 11: In Goals type: tomcat7:run and click Run.
+Step 12: Open browser and go to http://localhost:9090/MyWebApp to see Hello World page.
+
+Part B – Calculator Web Application using JSP and Servlet
+Step 1: Open the existing Maven project created in Part A.
+Step 2: Go to src → main → webapp → index.jsp.
+Step 3: Replace the existing code in index.jsp with calculator form code.
+Step 4: Go to src → main → java folder.
+Step 5: Right click → New → Class.
+Step 6: Enter Class Name: CalculatorServlet and Package: com.mywebapp.
+Step 7: Add servlet code inside CalculatorServlet.java.
+Step 8: Open src → main → webapp → WEB-INF → web.xml.
+Step 9: Add servlet configuration and servlet mapping in web.xml.
+Step 10: Save the project.
+Step 11: Right click project → Run As → Maven Build.
+Step 12: In Goals type: tomcat7:run.
+Step 13: Open browser and go to http://localhost:9090/MyWebApp.
+Step 14: Enter two numbers and select an operation.
+Step 15: The calculated result will be displayed in the browser.
+
+index.jsp Code (Calculator Form)
+
+<html>
+<head>
+<title>Calculator</title>
+</head>
+
+<body>
+<h2>Calculator Application</h2>
+<form action="CalculatorServlet" method="get">
+Enter First Number:
+<input type="text" name="txt1"><br><br>
+Enter Second Number:
+<input type="text" name="txt2"><br><br>
+Select Operation:<br>
+<input type="radio" name="opr" value="+">Add<br>
+<input type="radio" name="opr" value="-">Subtract<br>
+<input type="radio" name="opr" value="*">Multiply<br>
+<input type="radio" name="opr" value="/">Divide<br><br>
+<input type="submit" value="Calculate">
+<input type="reset">
+</form>
+</body>
+</html>
+
+CalculatorServlet.java Code
+
+package com.mywebapp;
+
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class CalculatorServlet extends HttpServlet {
+
+ public void doGet(HttpServletRequest req, HttpServletResponse res)
+ throws ServletException, IOException {
+
+  res.setContentType("text/html");
+  PrintWriter out = res.getWriter();
+
+  double n1 = Double.parseDouble(req.getParameter("txt1"));
+  double n2 = Double.parseDouble(req.getParameter("txt2"));
+
+  String op = req.getParameter("opr");
+
+  double result = 0;
+
+  if(op.equals("+"))
+   result = n1 + n2;
+
+  if(op.equals("-"))
+   result = n1 - n2;
+
+  if(op.equals("*"))
+   result = n1 * n2;
+
+  if(op.equals("/"))
+   result = n1 / n2;
+
+  out.println("<h2>Result = " + result + "</h2>");
+ }
+}
+
+web.xml Configuration
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+ version="3.1">
+
+ <servlet>
+  <servlet-name>CalculatorServlet</servlet-name>
+  <servlet-class>com.mywebapp.CalculatorServlet</servlet-class>
+ </servlet>
+
+ <servlet-mapping>
+  <servlet-name>CalculatorServlet</servlet-name>
+  <url-pattern>/CalculatorServlet</url-pattern>
+ </servlet-mapping>
+
+</web-app>
+
+Result
+The Maven web application and calculator servlet application executed successfully using Tomcat server.
+
+
+#Factorization
+#index.jsp
+<html>
+<head>
+<title>Simple Interest Calculator</title>
+</head>
+<body>
+<h2>Simple Interest Calculator</h2>
+<form action="SimpleInterestServlet" method="get">
+Enter Principal Amount:
+<input type="text" name="principal"><br><br>
+Enter Rate of Interest:
+<input type="text" name="rate"><br><br>
+Enter Time (Years):
+<input type="text" name="time"><br><br>
+<input type="submit" value="Calculate">
+<input type="reset">
+</form>
+</body>
+</html>
+
+
+#Servlet 
+package com.mywebapp;
+
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class SimpleInterestServlet extends HttpServlet {
+
+ public void doGet(HttpServletRequest req, HttpServletResponse res)
+ throws ServletException, IOException {
+
+  res.setContentType("text/html");
+
+  PrintWriter out = res.getWriter();
+
+  double p = Double.parseDouble(req.getParameter("principal"));
+  double r = Double.parseDouble(req.getParameter("rate"));
+  double t = Double.parseDouble(req.getParameter("time"));
+
+  double si = (p * r * t) / 100;
+
+  out.println("<h2>Simple Interest = " + si + "</h2>");
+ }
+}
+
+
+#Web Xml
+<servlet>
+    <servlet-name>SimpleInterestServlet</servlet-name>
+    <servlet-class>com.mywebapp.SimpleInterestServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>SimpleInterestServlet</servlet-name>
+    <url-pattern>/SimpleInterestServlet</url-pattern>
+</servlet-mapping>
+
+
+#Factorial Calculator
+#index.jsp
+<html>
+<head>
+<title>Factorial Calculator</title>
+</head>
+<body>
+<h2>Factorial Calculator</h2>
+<form action="FactorialServlet" method="get">
+Enter Number:
+<input type="text" name="number"><br><br>
+<input type="submit" value="Calculate Factorial">
+</form>
+</body>
+</html>
+
+#Servlet
+package com.mywebapp;
+
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class FactorialServlet extends HttpServlet {
+
+    public void doGet(HttpServletRequest req, HttpServletResponse res)
+            throws ServletException, IOException {
+
+        res.setContentType("text/html");
+
+        PrintWriter out = res.getWriter();
+
+        int n = Integer.parseInt(req.getParameter("number"));
+
+        int fact = 1;
+
+        for(int i = 1; i <= n; i++)
+        {
+            fact = fact * i;
+        }
+
+        out.println("<h2>Factorial of " + n + " = " + fact + "</h2>");
+    }
+}
+
+
+#web.xml
+
+<servlet>
+    <servlet-name>FactorialServlet</servlet-name>
+    <servlet-class>com.mywebapp.FactorialServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>FactorialServlet</servlet-name>
+    <url-pattern>/FactorialServlet</url-pattern>
+</servlet-mapping>
+
+
+#Temprature
+#index.jsp
+<html>
+<head>
+<title>Temperature Converter</title>
+</head>
+<body>
+<h2>Temperature Converter</h2>
+<form action="TempServlet" method="get">
+Enter Temperature in Celsius:
+<input type="text" name="celsius"><br><br>
+<input type="submit" value="Convert">
+</form>
+</body>
+</html>
+
+
+#Servlet
+package com.mywebapp;
+
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class TempServlet extends HttpServlet {
+
+    public void doGet(HttpServletRequest req, HttpServletResponse res)
+            throws ServletException, IOException {
+
+        res.setContentType("text/html");
+
+        PrintWriter out = res.getWriter();
+
+        double c = Double.parseDouble(req.getParameter("celsius"));
+
+        double f = (c * 9/5) + 32;
+
+        out.println("<h2>Temperature in Fahrenheit = " + f + "</h2>");
+    }
+}
+
+
+#web.xml
+<servlet>
+    <servlet-name>TempServlet</servlet-name>
+    <servlet-class>com.mywebapp.TempServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>TempServlet</servlet-name>
+    <url-pattern>/TempServlet</url-pattern>
+</servlet-mapping>
