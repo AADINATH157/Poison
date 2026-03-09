@@ -1,0 +1,85 @@
+Maven Practical 10 Guide (Jetty and Tomcat)
+
+Objective
+To learn how to run a Maven web application using the Jetty plugin and how to deploy a Maven WAR file on an Apache Tomcat server.
+
+Requirements
+1. Java JDK installed
+2. Maven installed
+3. Apache Tomcat installed
+4. Maven Web Project created
+
+Project Structure
+MyWebApp
+ ├── pom.xml
+ ├── src
+ │   └── main
+ │        └── webapp
+ │             ├── index.jsp
+ │             └── WEB-INF
+ │                   └── web.xml
+ └── target
+ 
+#index.jsp Example Code
+<html>
+<head>
+<title>Maven Practical</title>
+</head>
+<body>
+<h1>Practical 10 Working</h1>
+<h2>Maven Web Application Running</h2>
+</body>
+</html>
+
+#Minimal web.xml Example
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+version="3.1">
+<display-name>MyWebApp</display-name>
+</web-app>
+
+
+#Practical 10 (A) – Run Application using Jetty
+
+Step 1: Open Command Prompt and go to project folder
+cd C:\Users\AADINATH CHAVAN\mavenweb\MyWebApp
+
+Step 2: Clean the project
+mvn clean
+
+Step 3: Compile the project
+mvn compile
+
+Step 4: Run Jetty server using Maven plugin
+mvn jetty:run
+
+Step 5: Open browser and visit
+http://localhost:8080/index.jsp
+
+Expected Output (Jetty)
+Browser shows: Practical 10 Working – Maven Web Application Running
+
+
+#Practical 10 (B) – Deploy Application on Apache Tomcat
+Step 1: Build WAR file using Maven
+mvn clean
+mvn package
+
+Step 2: Go to target folder and find WAR file
+target/MyWebApp-1.0-SNAPSHOT.war
+
+Step 3: Copy WAR file to Tomcat webapps folder
+C:\apache-tomcat-9.0.106\webapps
+
+Step 4: Start Tomcat server
+Go to: C:\apache-tomcat-9.0.106\bin
+Run: startup.bat
+
+Step 5: Open browser
+http://localhost:8080/MyWebApp-1.0-SNAPSHOT/index.jsp
+
+Conclusion
+In this practical we learned how to run a Maven web application using the Jetty plugin and how to deploy the same application on Apache Tomcat using a WAR file.
