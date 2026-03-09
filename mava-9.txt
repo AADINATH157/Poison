@@ -1,0 +1,97 @@
+Maven Practical 9: Creating Web Application with Maven and Deploying on Tomcat
+
+1. Prerequisites
+Install the following software before starting:
+• Java JDK
+• Apache Maven
+• Apache Tomcat
+
+Check installation using:
+java -version
+mvn -version
+
+2. Create Folder for Project
+Open Command Prompt and run:
+cd Desktop
+mkdir MavenWeb
+cd MavenWeb
+
+3. Generate Maven Web Application
+Run the command:
+mvn archetype:generate
+Select:
+10 : maven-archetype-webapp
+
+4. Enter Project Details
+Enter the following values:
+GroupId: org.mywebapp
+ArtifactId: MyWebApp
+Version: 1.0-SNAPSHOT
+Package: org.mywebapp
+
+Confirm with: Y
+
+5. Go Inside Project Folder
+cd MyWebApp
+
+6. Check Project Structure
+MyWebApp
+│
+├── pom.xml
+└── src
+    └── main
+        └── webapp
+            ├── index.jsp
+            └── WEB-INF
+
+7. Edit index.jsp
+Open file:
+src/main/webapp/index.jsp or normal.jsp
+Replace with:
+<html>
+<head>
+<title>Maven Web Application</title>
+</head>
+<body>
+<h1>Hello World!</h1>
+<h2>Maven Practical 9 Working</h2>
+</body>
+</html>
+
+8. Compile Project
+mvn compile
+Expected Output:
+BUILD SUCCESS
+
+9. Package Web Application
+mvn package
+WAR file created at:
+target/MyWebApp-1.0-SNAPSHOT.war
+
+10. Deploy on Tomcat
+Copy the WAR file:
+target/MyWebApp-1.0-SNAPSHOT.war
+
+Paste it into:
+C:\apache-tomcat-9.0.106\webapps
+
+11. Start Tomcat
+Go to:
+apache-tomcat-9.0.106/bin
+Run:  startup.bat
+
+12. Run the Application
+Open browser:
+http://localhost:8080/MyWebApp-1.0-SNAPSHOT
+or
+http://localhost:8080/MyWebApp-1.0-SNAPSHOT/index.jsp or normal.jsp
+
+Expected Output
+Hello World!
+Maven Practical 9 Working
+
+Commands Summary
+mvn archetype:generate
+cd MyWebApp
+mvn compile
+mvn package
