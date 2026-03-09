@@ -1,0 +1,106 @@
+Git Basics Practical – All Commands
+1. Check Git Version
+git --version
+
+2. Configure Git User
+git config --global user.name "Your Name"
+git config --global user.email "your_email@example.com"
+git config --list
+git config user.name
+
+3. Navigate to Project Folder
+cd path_of_project_folder
+
+4. Initialize Repository
+git init
+
+5. Check Repository Status
+git status
+
+6. Add Files for Tracking
+git add README.txt
+git add .
+
+7. Commit Changes
+git commit -m "Initial project version"
+
+8. Stage Edited Files
+git status
+git add filename
+git status
+
+9. View Commit History
+git log
+
+10. Show Detailed Commit Changes
+git log -p
+
+11. One Line Commit Log
+git log --pretty=oneline
+
+12. Custom Format Log
+git log --pretty=format:"%h - %an, %ar : %s"
+
+13. Show Files Changed in Commit
+git log --stat
+
+14. Limit Log Output
+git log -2
+
+15. Limit Log by Date or Author
+git log --since="today"
+git log --before="2025-12-10"
+git log --author="Author Name"
+
+16. Visualize Git History
+gitk
+
+17. Change Last Commit Message
+git commit --amend
+
+18. Unstage a Staged File
+git restore --staged filename
+
+19. Restore Modified File
+git restore filename
+
+20. Clone Remote Repository
+git clone https://github.com/user/repository.git
+
+21. Show Remote Repositories
+git remote
+git remote -v
+
+22. Add Remote Repository
+git remote add pb https://github.com/user/repository.git
+
+23. Fetch Remote Changes
+git fetch pb
+
+24. Push to Remote Repository
+git push origin master
+
+25. Inspect Remote
+git remote show origin
+
+26. Rename Remote
+git remote rename pb paul
+
+27. Remove Remote
+git remote rm paul
+
+28. List Tags
+git tag
+
+29. Create Annotated Tag
+git tag -a v0.0 -m "my version 0.0"
+
+30. Verify Tag
+git tag -v v1.4.2
+
+31. Push Tag to Remote
+git push origin v0.0
+
+32. Create Git Alias
+git config --global alias.ci commit
+git ci -m "message"
