@@ -1,0 +1,38 @@
+Practical No. 6: GitHub Collaboration using Pull Request
+
+Aim
+To collaborate using Fork, Pull Request and review mechanism in GitHub.
+
+Procedure
+1. Open GitHub in your browser and login to your GitHub account. Then open any repository that you want to contribute to.
+
+2. Click on the 'Fork' button to create a copy of that repository in your GitHub account.
+
+3. Open Git Bash and clone the forked repository using the command: git clone https://github.com/yourusername/repository-name.git
+
+4. Move into the repository folder using the command: cd repository-name
+
+5. Create a new branch using the command: git branch feature-branch
+
+6. Switch to the new branch using the command: git checkout feature-branch
+
+7. Open any file (for example file1.txt) and add some changes such as: 'This change is added for collaboration practical'. Save the file.
+
+8. Add the modified files to staging area using the command: git add .
+
+9. Commit the changes using the command: git commit -m 'Added changes for pull request'
+
+10. Push the branch to GitHub using the command: git push origin feature-branch
+
+11. Go to your repository on GitHub and click on 'Compare & Pull Request'.
+
+12. Add a title and description for the pull request and click 'Create Pull Request'.
+
+13. Review the pull request and click 'Merge Pull Request'.
+
+14. Click 'Confirm Merge' to complete the merge process.
+
+15. Finally, check the commits section of the repository to verify that the changes are merged successfully.
+
+Result
+The repository was forked, cloned locally, changes were made in a branch and a pull request was created and merged successfully.
