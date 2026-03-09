@@ -1,0 +1,107 @@
+# Maven Practical 8 – Installation and Project Setup Guide
+
+1. Create Maven Project
+Open Command Prompt in the folder where you want the project.
+Command:
+mvn archetype:generate
+
+Choose:
+7  (maven-archetype-quickstart)
+
+Enter values:
+GroupId: com.college
+ArtifactId: MavenDemo
+Version: 1.0-SNAPSHOT
+Package: com.college
+
+Confirm:
+Y
+
+2. Go to Project Folder
+cd MavenDemo
+
+3. Compile the Project
+mvn compile
+
+Expected Output:
+BUILD SUCCESS
+
+4. Run Tests
+mvn test
+Expected Output:
+BUILD SUCCESS
+
+5. Package the Project
+mvn package
+
+This creates:
+target/MavenDemo-1.0-SNAPSHOT.jar
+(or .war depending on archetype)
+
+6. Run the Java Program
+java -cp target\classes com.college.App
+
+Expected Output:
+Hello World!
+
+7. If mvn compile Gives Error
+Check if you are inside the project folder:
+dir
+
+You must see:
+pom.xml
+src
+target
+
+If not, go inside the project:
+
+cd MavenDemo
+
+8. If App.class Is Not Created
+Check compiled classes:
+dir target\classes /s
+
+You should see:
+target\classes\com\college\App.class
+
+If not, rebuild:
+mvn clean
+mvn compile
+
+9. Correct Folder Structure
+MavenDemo
+│
+├── pom.xml
+├── src
+│   └── main
+│       └── java
+│           └── com
+│               └── college
+│                   └── App.java
+│
+└── target
+    └── classes
+        └── com
+            └── college
+                └── App.class
+                
+10. Correct Java Code (App.java)
+File Location:
+src/main/java/com/college/App.java
+
+Code:
+package com.college;
+
+public class App {
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+    }
+}
+
+Final Commands for Exam (Short Version):
+mvn archetype:generate
+cd MavenDemo
+mvn compile
+mvn test
+mvn package
+java -cp target\classes com.college.App
