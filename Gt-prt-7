@@ -1,0 +1,50 @@
+Practical No. 7: Raise Issue in GitHub
+
+Aim
+To raise an issue in a GitHub repository and resolve it using a pull request.
+
+Procedure
+1. Open your web browser and go to https://github.com and login to your GitHub account.
+
+2. Open the repository where you want to raise the issue.
+
+3. Click on the 'Issues' tab in the repository.
+
+4. Click on the 'New Issue' button.
+
+5. Enter the issue title and description explaining the problem.
+
+6. Click on 'Submit new issue' to create the issue.
+
+7. If working in a group, you can assign the issue to a team member.
+
+8. Open Git Bash and clone the repository using the command: git clone https://github.com/username/repository-name.git
+
+9. Move into the project directory using the command: cd repository-name
+
+10. Create a new branch to fix the issue using the command: git branch fix-issue
+
+11. Switch to the new branch using the command: git checkout fix-issue
+
+12. Open the required file (for example index.html) and make necessary changes.
+
+13. Add the modified files using the command: git add .
+
+14. Commit the changes using the command: git commit -m 'Update index.html with necessary changes'
+
+15. Push the branch to GitHub using the command: git push origin fix-issue
+
+16. Open the repository on GitHub and click on 'Compare & Pull Request'.
+
+17. Add a title and description for the pull request.
+
+18. Click on 'Create Pull Request'.
+
+19. Review the pull request and click on 'Merge Pull Request'.
+
+20. Click on 'Confirm Merge' to merge the changes.
+
+21. Finally go back to the Issues tab and close the issue if it is resolved.
+
+Result
+The issue was successfully created in GitHub and resolved using a pull request.
